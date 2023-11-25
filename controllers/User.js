@@ -41,7 +41,7 @@ async function handleCreateUser(req, res) {
             },
         })
     } catch (err) {
-        console.log(cli.red.bold(`Error`, err))
+        console.log(cli.red.bold(`Error in creating a user`, err))
         return res.status(500).json({
             "message": "Something error occured",
             "data": err,
@@ -64,7 +64,7 @@ async function handleReadUser(req, res) {
             },
         })
     } catch (err) {
-        console.log(cli.red.bold(`Error:`, err));
+        console.log(cli.red.bold(`Error is reading a user:`, err));
         return res.status(500).json({
             "message": "Something error occured",
             "data": err,
@@ -95,7 +95,7 @@ async function handleUpdateUser(req, res) {
             },
         });
     } catch (err) {
-        console.error(cli.red.bold("Error:", err));
+        console.error(cli.red.bold("Error in updating user:", err));
         return res.status(500).json({
             "message": "Something error occured",
             "data": err,
@@ -119,7 +119,7 @@ async function handleDeleteUser(req, res) {
             },
         });
     } catch (err) {
-        console.error(cli.red.bold("Error:", err));
+        console.error(cli.red.bold("Error in deleting user:", err));
         return res.status(500).json({
             "message": "Something error occured",
             "data": err,
@@ -127,4 +127,65 @@ async function handleDeleteUser(req, res) {
     }
 }
 
-module.exports = { handleCreateUser, handleReadUser, handleUpdateUser, handleDeleteUser };
+async function handleLoginUser(req, res) {
+    const { email, password } = req.body;
+    // find user with email id - done
+    // then check if password matches - done
+    // if password matches then generate a session id
+    // store the session id in the database
+    // and send the session id to ther user in cookies
+    try {
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            return res.status(400).json({
+                "message": "Please enter a valid email or sign up.",
+            })
+        }
+
+        const passwordMatched = await bcrypt.compare(password, user.password);
+
+        if (!passwordMatched) {
+            return res.status(403).json({
+                "message": "Password doesn't match",
+            })
+        }
+
+        req.session.user = {
+            "name": user.name,
+            "email": user.email,
+        }
+
+        return res.status(200).json({
+            "message": "Logged in successful",
+            "data": {
+                "name": user.name,
+                "email": user.email
+            }
+        })
+    } catch (err) {
+        console.error(cli.red.bold("Error in login:", err));
+        return res.status(500).json({
+            "message": "Something error occured",
+            "data": err,
+        })
+    }
+
+}
+
+async function handleLogoutUser(req, res) {
+    try {
+        req.session.destroy();
+        return res.status(200).json({
+            "message": "User logged out successfully"
+        })
+    } catch (err) {
+        console.error(cli.red.bold("Error in logout:", err));
+        return res.status(500).json({
+            "message": "Something error occured",
+            "data": err,
+        })
+    }
+}
+
+module.exports = { handleCreateUser, handleReadUser, handleUpdateUser, handleDeleteUser, handleLoginUser, handleLogoutUser };
