@@ -43,7 +43,7 @@ async function handleCreateUser(req, res) {
     } catch (err) {
         console.log(cli.red.bold(`Error in creating a user`, err))
         return res.status(500).json({
-            "message": "Something error occured",
+            "message": "Something error occured in the server",
             "data": err,
         })
     }
@@ -66,7 +66,7 @@ async function handleReadUser(req, res) {
     } catch (err) {
         console.log(cli.red.bold(`Error is reading a user:`, err));
         return res.status(500).json({
-            "message": "Something error occured",
+            "message": "Something error occured in the server",
             "data": err,
         })
     }
@@ -97,7 +97,7 @@ async function handleUpdateUser(req, res) {
     } catch (err) {
         console.error(cli.red.bold("Error in updating user:", err));
         return res.status(500).json({
-            "message": "Something error occured",
+            "message": "Something error occured in the server",
             "data": err,
         })
     }
@@ -121,7 +121,7 @@ async function handleDeleteUser(req, res) {
     } catch (err) {
         console.error(cli.red.bold("Error in deleting user:", err));
         return res.status(500).json({
-            "message": "Something error occured",
+            "message": "Something error occured in the server",
             "data": err,
         })
     }
@@ -166,7 +166,7 @@ async function handleLoginUser(req, res) {
     } catch (err) {
         console.error(cli.red.bold("Error in login:", err));
         return res.status(500).json({
-            "message": "Something error occured",
+            "message": "Something error occured in the server",
             "data": err,
         })
     }
@@ -182,7 +182,7 @@ async function handleLogoutUser(req, res) {
     } catch (err) {
         console.error(cli.red.bold("Error in logout:", err));
         return res.status(500).json({
-            "message": "Something error occured",
+            "message": "Something error occured in the server",
             "data": err,
         })
     }

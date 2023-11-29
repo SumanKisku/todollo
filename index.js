@@ -2,7 +2,9 @@ const express = require("express");
 const cli = require("cli-color");
 const mongoose = require("mongoose");
 require("dotenv").config();
-const userRouter = require("./routes/User")
+const userRouter = require("./routes/User");
+const boardsRouter = require("./routes/Boards");
+const listRouter = require("./routes/List");
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
@@ -26,6 +28,8 @@ app.use(session({
 }));
 
 app.use("/user", userRouter);
+app.use("/board", boardsRouter);
+app.use("/list", listRouter);
 
 app.listen(PORT, () => {
     console.log(cli.green.bold(`The server is running on ${PORT}`));
@@ -33,7 +37,7 @@ app.listen(PORT, () => {
 
 // TODO
 // User schema - Done
-// Authentication -
-// Board schema
+// Authentication - done
+// Board schema - 
 // Lists schema
 // Cards schema

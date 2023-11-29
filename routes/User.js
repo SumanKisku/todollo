@@ -3,7 +3,7 @@ const router = express.Router();
 const { handleCreateUser, handleReadUser, handleUpdateUser, handleDeleteUser, handleLoginUser, handleLogoutUser } = require("../controllers/User");
 const { isAuthenticated } = require("../middlewares/auth");
 
-router.post("/", isAuthenticated, handleCreateUser);
+router.post("/", handleCreateUser);
 router.get("/:id", isAuthenticated, handleReadUser);
 router.put("/:id", isAuthenticated, handleUpdateUser);
 router.delete("/:id", isAuthenticated, handleDeleteUser);
