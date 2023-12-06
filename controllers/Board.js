@@ -1,7 +1,7 @@
 const Board = require("../models/Board");
 const cli = require("cli-color");
 
-// crud
+// CRUD Operations for Boards
 async function handleCreateBoard(req, res) {
     const { title, background } = req.body;
 
@@ -137,8 +137,8 @@ async function handleDeleteBoard(req, res) {
     }
 }
 
-
-async function handleAddStartBoard(req, res) {
+// Add and remove star for Boards
+async function handleAddStarBoard(req, res) {
     const { boardId } = req.body;
 
     if (!boardId) {
@@ -169,7 +169,7 @@ async function handleAddStartBoard(req, res) {
     }
 }
 
-async function handleRemoveStartBoard(req, res) {
+async function handleRemoveStarBoard(req, res) {
     const { boardId } = req.body;
 
     if (!boardId) {
@@ -201,3 +201,10 @@ async function handleRemoveStartBoard(req, res) {
 }
 
 module.exports = { handleCreateBoard, handleReadBoard, handleReadAllBoards, handleUpdateBoard, handleDeleteBoard, handleAddStartBoard, handleRemoveStartBoard }
+
+// TODO:
+// [x] Create borad
+// [x] Read - Board
+// [x] Update - Board
+// [x] Delete - Board
+//

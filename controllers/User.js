@@ -127,6 +127,7 @@ async function handleDeleteUser(req, res) {
     }
 }
 
+// Login logic
 async function handleLoginUser(req, res) {
     const { email, password } = req.body;
     // find user with email id - done
@@ -173,6 +174,7 @@ async function handleLoginUser(req, res) {
 
 }
 
+// Logout - logic
 async function handleLogoutUser(req, res) {
     try {
         req.session.destroy();
@@ -189,3 +191,9 @@ async function handleLogoutUser(req, res) {
 }
 
 module.exports = { handleCreateUser, handleReadUser, handleUpdateUser, handleDeleteUser, handleLoginUser, handleLogoutUser };
+
+// TODO:
+// [x] Create - User
+// [x] Update - User
+// [x] Read - User
+// [x] Delete - User

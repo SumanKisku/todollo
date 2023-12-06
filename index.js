@@ -35,9 +35,3 @@ app.listen(PORT, () => {
     console.log(cli.green.bold(`The server is running on ${PORT}`));
 })
 
-// TODO
-// User schema - Done
-// Authentication - done
-// Board schema - 
-// Lists schema
-// Cards schema

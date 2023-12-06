@@ -13,7 +13,7 @@ async function handleCreateList(req, res) {
             createdBy: req.session.user.email,
         })
 
-        // Find the board where you want to add your new list, and update the board
+        // Find the board where you want to add your new list, and push the new list to the board
         await Board.findOneAndUpdate(
             { _id: boardId },
             {$push: {lists: list._id}},
@@ -34,3 +34,9 @@ async function handleCreateList(req, res) {
 }
 
 module.exports = { handleCreateList }
+
+// TODO:
+// [x] - Create - List
+// [] - Read - List
+// [] - Update - List
+// [] - Delete - List
