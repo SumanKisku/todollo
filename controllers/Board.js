@@ -200,7 +200,7 @@ async function handleRemoveStarBoard(req, res) {
     }
 }
 
-module.exports = { handleCreateBoard, handleReadBoard, handleReadAllBoards, handleUpdateBoard, handleDeleteBoard, handleAddStartBoard, handleRemoveStartBoard }
+module.exports = { handleCreateBoard, handleReadBoard, handleReadAllBoards, handleUpdateBoard, handleDeleteBoard, handleAddStarBoard, handleRemoveStarBoard }
 
 // TODO:
 // [x] Create borad
