@@ -3,7 +3,7 @@ const cli = require("cli-color");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const userRouter = require("./routes/User");
-const boardsRouter = require("./routes/Boards");
+const boardsRouter = require("./routes/Board");
 const listRouter = require("./routes/List");
 const session = require('express-session');
 const MongoStore = require('connect-mongo');

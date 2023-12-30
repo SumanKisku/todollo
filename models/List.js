@@ -11,10 +11,6 @@ const listSchema = new Schema({
     cards: {
         type: [cardSchema],
     },
-    board: {
-        type: Schema.Types.ObjectId,
-        ref: "Board",
-    },
     createdBy: {
         type: String,
         required: true,
