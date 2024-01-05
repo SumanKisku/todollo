@@ -7,9 +7,22 @@ const cardSchema = new Schema({
         type: String,
         required: true,
     },
+    description: {
+        type: String,
+        required: false,
+    },
     createdBy: {
         type: String,
         required: true,
+    },
+    cover: {
+        type: String,
+        required: false,
+    },
+    labels: {
+        type: [String],
+        required: false,
+
     }
 }, {
     timestamps: true,

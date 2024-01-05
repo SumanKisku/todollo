@@ -5,6 +5,7 @@ require("dotenv").config();
 const userRouter = require("./routes/User");
 const boardsRouter = require("./routes/Board");
 const listRouter = require("./routes/List");
+const cardRouter = require("./routes/Card")
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
@@ -30,6 +31,7 @@ app.use(session({
 app.use("/user", userRouter);
 app.use("/board", boardsRouter);
 app.use("/list", listRouter);
+app.use("/card", cardRouter);
 
 app.listen(PORT, () => {
     console.log(cli.green.bold(`The server is running on ${PORT}`));
