@@ -22,7 +22,7 @@ async function handleCreateCard(req, res) {
       "data": createdCard,
     })
   } catch (err) {
-    console.error(cli.red.bold("Error in creating a card.", err));
+    console.error(cli.red.bold("Error in creating a card:", err));
     return res.status(500).json({
       "message": "Something error occured in the server",
       "data": err,
@@ -39,7 +39,7 @@ async function handleReadAllCards(req, res) {
       "data": cards,
     })
   } catch (err) {
-    console.error(cli.red.bold("Error in reading all cards.", err));
+    console.error(cli.red.bold("Error in reading all cards:", err));
     return res.status(500).json({
       "message": "Something error occured in the server",
       "data": err,
@@ -74,7 +74,7 @@ async function handleUpdateCard(req, res) {
       "data": updatedCard,
     })
   } catch (err) {
-    console.error(cli.red.bold("Error in updating a card", err));
+    console.error(cli.red.bold("Error in updating a card:", err));
     return res.status(500).json({
       "message": "Something error occured in the server",
       "data": err,
@@ -102,7 +102,7 @@ async function handleDeleteCard(req, res) {
       "data": deletedCard,
     })
   } catch (err) {
-    console.error(cli.red.bold("Error in deleting a card.", err));
+    console.error(cli.red.bold("Error in deleting a card:", err));
     return res.status(500).json({
       "message": "Something error occured in the server",
       "data": err,
